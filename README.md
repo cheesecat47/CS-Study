@@ -25,11 +25,6 @@
     <td>플랫폼</td>
     <td>온라인 강의</td>
   </tr>
-  <tr>
-    <td>언어</td>
-    <td><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white">
-    </td>
-  </tr>
 </table>
 
 <br/>
@@ -53,14 +48,6 @@
     <td align="center"><a href="https://github.com/cheesecat47"><b>kimhaechang1</b></a></td>
     <td align="center"><a href="https://github.com/Kimjuyi"><b>Kimjuyi</b></a></td>
   </tr>
-  <tr> 
-    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
-    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
-    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
-    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
-    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
-    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
-  </tr> 
 </table>
 
 <br/>
