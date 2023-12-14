@@ -11,6 +11,7 @@ setDt()
 const names_input = ref('')
 const names = ref([])
 const presenter = ref('')
+const scribe = ref('')
 const qna = ref([])
 const show_res = ref(0)
 
@@ -27,6 +28,12 @@ const shuffle = (arr) => {
 const process = () => {
   // 오늘의 발표자 한 명 뽑기
   presenter.value = names.value[Math.floor(Math.random() * names.value.length)]
+  scribe.value = presenter.value
+
+  // 오늘의 서기 한 명 뽑기
+  while (presenter.value === scribe.value) {
+    scribe.value = names.value[Math.floor(Math.random() * names.value.length)]
+  }
 
   // 질문 -> 답변
   const tmp_arr = [...names.value]
@@ -61,7 +68,7 @@ const draw = () => {
   }
 
   show_res.value = 1
-  setTimeout(process, 3000)
+  setTimeout(process, 2000 + (Math.random() * 1000))
 }
 </script>
 
@@ -122,6 +129,11 @@ const draw = () => {
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="text-center border rounded my-6 p-2">
+          <h2 class="text-xl">오늘의 서기</h2>
+          <p class="text-2xl">{{ scribe }}</p>
         </div>
       </div>
     </Transition>
