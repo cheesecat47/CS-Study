@@ -47,7 +47,7 @@
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Be-HinD"><b>Be-HinD</b></a></td>
-    <td align="center"><a href="https://github.com/Be-HinD"><b>Be-HinD</b></a></td>
+    <td align="center"><a href="https://github.com/hyun812"><b>hyun812</b></a></td>
     <td align="center"><a href="https://github.com/Be-HinD"><b>Be-HinD</b></a></td>
     <td align="center"><a href="https://github.com/eat-alone"><b>eunalove</b></a></td>
     <td align="center"><a href="https://github.com/cheesecat47"><b>kimhaechang1</b></a></td>
