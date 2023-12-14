@@ -23,7 +23,7 @@
   </tr>
   <tr>
     <td>플랫폼</td>
-    <td>강의</td>
+    <td>온라인 강의</td>
   </tr>
   <tr>
     <td>언어</td>
@@ -39,17 +39,23 @@
 <table>
  <tr>
     <td align="center"><a href="https://github.com/Be-HinD"><img src="https://avatars.githubusercontent.com/Be-HinD" width="130px;" alt=""></a></td>
-    <td align="center"><a href="https://github.com/eunalove"><img src="https://avatars.githubusercontent.com/eunalove" width="130px;" alt=""></a></td>
-    <td align="center"><a href="https://github.com/kimhaechang1"><img src="https://avatars.githubusercontent.com/kimhaechang1" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/eunalove"><img src="https://avatars.githubusercontent.com/eat-alone" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/kimhaechang1"><img src="https://avatars.githubusercontent.com/cheesecat47" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/Kimjuyi"><img src="https://avatars.githubusercontent.com/Kimjuyi" width="130px;" alt=""></a></td>
+   <td align="center"><a href="https://github.com/kimhaechang1"><img src="https://avatars.githubusercontent.com/cheesecat47" width="130px;" alt=""></a></td>
+   <td align="center"><a href="https://github.com/kimhaechang1"><img src="https://avatars.githubusercontent.com/cheesecat47" width="130px;" alt=""></a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Be-HinD"><b>Be-HinD</b></a></td>
-    <td align="center"><a href="https://github.com/eunalove"><b>eunalove</b></a></td>
-    <td align="center"><a href="https://github.com/kimhaechang1"><b>kimhaechang1</b></a></td>
+    <td align="center"><a href="https://github.com/Be-HinD"><b>Be-HinD</b></a></td>
+    <td align="center"><a href="https://github.com/Be-HinD"><b>Be-HinD</b></a></td>
+    <td align="center"><a href="https://github.com/eat-alone"><b>eunalove</b></a></td>
+    <td align="center"><a href="https://github.com/cheesecat47"><b>kimhaechang1</b></a></td>
     <td align="center"><a href="https://github.com/Kimjuyi"><b>Kimjuyi</b></a></td>
   </tr>
   <tr> 
+    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
+    <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
     <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
     <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
     <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"></td>
