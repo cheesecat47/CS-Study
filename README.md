@@ -34,7 +34,7 @@
 <table>
  <tr>
     <td align="center"><a href="https://github.com/Be-HinD"><img src="https://avatars.githubusercontent.com/Be-HinD" width="130px;" alt=""></a></td>
-    <td align="center"><a href="https://github.com/hyun812"><img src="https://avatars.githubusercontent.com/eat-alone" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/hyun812"><img src="https://avatars.githubusercontent.com/hyun812" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/kimhaechang1"><img src="https://avatars.githubusercontent.com/cheesecat47" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/Kimjuyi"><img src="https://avatars.githubusercontent.com/Kimjuyi" width="130px;" alt=""></a></td>
    <td align="center"><a href="https://github.com/kimhaechang1"><img src="https://avatars.githubusercontent.com/cheesecat47" width="130px;" alt=""></a></td>
