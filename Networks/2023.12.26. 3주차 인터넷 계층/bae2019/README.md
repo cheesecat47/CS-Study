@@ -2,152 +2,152 @@
 
 - IP 프로토콜 구조
     
-    -IPv4프로토콜
+   &emsp; -IPv4프로토콜
     
-    ㄴ네트워크 상에서 데이터 교환 위한 프로토콜
+   &emsp;&emsp; ㄴ네트워크 상에서 데이터 교환 위한 프로토콜
     
-    ㄴ데이터 정확한 전달 보장 X (중복패킷 전달, 순서 잘못 전달 가능)
+   &emsp;&emsp; ㄴ데이터 정확한 전달 보장 X (중복패킷 전달, 순서 잘못 전달 가능)
     
-    ㄴ>데이터의 정확, 순차적 전달은 TCP에서 보장
+   &emsp;&emsp; ㄴ>데이터의 정확, 순차적 전달은 TCP에서 보장
     
-    -구조
+   &emsp; -구조
     
-    ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled.png)
+   &emsp;&emsp; ![Untitled](Untitled.png)
     
-    ㄴ옵션 추가시 4byte씩 추가
+   &emsp;&emsp; ㄴ옵션 추가시 4byte씩 추가
     
-    ㄴHeader Length : 전체 길이 / 4로 표현
+   &emsp;&emsp; ㄴHeader Length : 전체 길이 / 4로 표현
     
-    ㄴTotal Length : payload까지의 전체 길이
+   &emsp;&emsp; ㄴTotal Length : payload까지의 전체 길이
     
-    ㄴIP Flag : 패킷 구분, 3bit(M-남은 패킷 유무, D-조각화 여부)
+   &emsp;&emsp; ㄴIP Flag : 패킷 구분, 3bit(M-남은 패킷 유무, D-조각화 여부)
     
-    ㄴprotocol : 상위 프로토콜 타입
+   &emsp;&emsp; ㄴprotocol : 상위 프로토콜 타입
     
-    ㄴChecksum : 오류 검사
+   &emsp;&emsp; ㄴChecksum : 오류 검사
     
-    -IPv4 주소 : 32bit, 8bit씩 끊어서 4개로 표시
+   &emsp; -IPv4 주소 : 32bit, 8bit씩 끊어서 4개로 표시
     
-    ㄴIP주소 : 192.168.60.14 = Network Id + Host Id
+   &emsp;&emsp; ㄴIP주소 : 192.168.60.14 = Network Id + Host Id
     
-    길이 32bit = Network Id 길이 + Host Id 길이
+   &emsp;&emsp; 길이 32bit = Network Id 길이 + Host Id 길이
     
-    ㄴNet mask(SubNet Mask) : Network Id 길이, 255.255.255.0
+   &emsp;&emsp; ㄴNet mask(SubNet Mask) : Network Id 길이, 255.255.255.0
     
-    *192 → 1100 0000(2)
+   &emsp;&emsp; *192 → 1100 0000(2)
     
-    *255 → 1111 1111(2)
+   &emsp;&emsp; *255 → 1111 1111(2)
     
-    AND ⇒ 1100 0000(2) —> 192.168.60.0 = Network Id
+   &emsp;&emsp; AND ⇒ 1100 0000(2) —> 192.168.60.0 = Network Id
     
-    ㄴ255.255.255.0 → 24bit이므로 192.168.60.14/24로 Net mask 표기
+   &emsp;&emsp; ㄴ255.255.255.0 → 24bit이므로 192.168.60.14/24로 Net mask 표기
     
-    -IPv6 주소 : 128bit
+   &emsp; -IPv6 주소 : 128bit
     
 - ICMP 프로토콜
     
-    -ICMP 프로토콜 : 인터넷 제어 메시지 프로토콜
+   &emsp; -ICMP 프로토콜 : 인터넷 제어 메시지 프로토콜
     
-    ㄴ운영체제에서 오류 메시지 송신(type, code 이용)
+   &emsp;&emsp; ㄴ운영체제에서 오류 메시지 송신(type, code 이용)
     
-    -구조
+   &emsp; -구조
     
-    ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%201.png)
+   &emsp;&emsp; ![Untitled](Untitled1.png)
     
-    ㄴType : 0(응답), 8(요청), 3(목적지접근X), 11(시간초과), 5(redirect-보안)
+   &emsp;&emsp; ㄴType : 0(응답), 8(요청), 3(목적지접근X), 11(시간초과), 5(redirect-보안)
     
-    ㄴCode : 소분류
+   &emsp;&emsp; ㄴCode : 소분류
     
-    ㄴChecksum : 오류 검사
+   &emsp;&emsp; ㄴChecksum : 오류 검사
     
 - 라우팅 테이블
     
-    -라우팅 테이블 : 프로토콜로 전송 시 경로 저장
+   &emsp; -라우팅 테이블 : 프로토콜로 전송 시 경로 저장
     
-    ㄴ라우팅 테이블에 적힌 네트워크 대역에만 송신
+   &emsp;&emsp; ㄴ라우팅 테이블에 적힌 네트워크 대역에만 송신
     
-    ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%202.png)
+   &emsp;&emsp; ![Untitled](Untitled2.png)
     
-    ㄴ0.0.0.0 → 기본 게이트웨이
+   &emsp;&emsp; ㄴ0.0.0.0 → 기본 게이트웨이
     
-    - 통신 과정
+   &emsp; - 통신 과정
         
-        -기본
+   &emsp;     -기본
         
-        ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%203.png)
+   &emsp;&emsp;     ![Untitled](Untitled3.png)
         
-        - A에서 요청
+   &emsp;     - A에서 요청
             
-            -A의 라우팅 테이블
+   &emsp;&emsp;         -A의 라우팅 테이블
             
-            192.168.0.0/24 → 192.168.10.1
+   &emsp;&emsp;&emsp;         192.168.0.0/24 → 192.168.10.1
             
-            192.168.20.0/24 → 192.168.10.1
+   &emsp;&emsp;&emsp;         192.168.20.0/24 → 192.168.10.1
             
-            -ICMP : 요청08, 응답00
+   &emsp;&emsp;         -ICMP : 요청08, 응답00
             
-            ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%204.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled4.png)
             
-            -IPv4
+   &emsp;&emsp;         -IPv4
             
-            ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%205.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled5.png)
             
-            -이더넷 : 목적지 MAC주소는 바로 다음 공유기
+   &emsp;&emsp;         -이더넷 : 목적지 MAC주소는 바로 다음 공유기
             
-            ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%206.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled6.png)
             
-        - 다음 공유기 요청
+   &emsp;     - 다음 공유기 요청
             
-            -공유기의 라우팅 테이블
+   &emsp;&emsp;         -공유기의 라우팅 테이블
             
-            192.168.10.0/24 → 192.168.10.1
+   &emsp;&emsp;&emsp;         192.168.10.0/24 → 192.168.10.1
             
-            192.168.20.0/24 → 192.168.30.2
+   &emsp;&emsp;&emsp;         192.168.20.0/24 → 192.168.30.2
             
-            -IPv4
+   &emsp;&emsp;         -IPv4
             
-            ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%207.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled7.png)
             
-            -이더넷
+   &emsp;&emsp;         -이더넷
             
-            ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%208.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled8.png)
             
-            ⇒IP주소 & 라우팅 테이블 → 이더넷 주소 갱신
+   &emsp;&emsp;         ⇒IP주소 & 라우팅 테이블 → 이더넷 주소 갱신
             
-            ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%209.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled9.png)
             
         
-        →이더넷 프로토콜은 네트워크 별로 갱신
+   &emsp;&emsp;     →이더넷 프로토콜은 네트워크 별로 갱신
         
 - 조각화 이론
     
-    -조각화 : 큰 IP 패킷이 적은 MTU(Maximum Transmission Unit) 갖는 링크로 전송 시 여러 작은 패킷으로 쪼개어 전송
+   &emsp; -조각화 : 큰 IP 패킷이 적은 MTU(Maximum Transmission Unit) 갖는 링크로 전송 시 여러 작은 패킷으로 쪼개어 전송
     
-    ㄴ목적지까지 패킷 전달 과정의 각 라우터마다 프레임으로 변환
+   &emsp;&emsp; ㄴ목적지까지 패킷 전달 과정의 각 라우터마다 프레임으로 변환
     
-    ㄴ보통 최종 목적지까지 재조립X
+   &emsp;&emsp; ㄴ보통 최종 목적지까지 재조립X
     
-    ㄴIPv4 : 발신지, 중간 라우터 IP 조각화
+   &emsp;&emsp; ㄴIPv4 : 발신지, 중간 라우터 IP 조각화
     
-    ㄴIPv6 : 발신지만 IP 조각화, 최종 수신지만 재조립
+   &emsp;&emsp; ㄴIPv6 : 발신지만 IP 조각화, 최종 수신지만 재조립
     
-    -과정
+   &emsp; -과정
     
-    ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%2010.png)
+   &emsp;&emsp; ![Untitled](Untitled10.png)
     
-    ㄴMTU 3,300 byte - header 20byte = payload 3,280byte
+   &emsp;&emsp; ㄴMTU 3,300 byte - header 20byte = payload 3,280byte
     
-    ㄴMF : more fragment, 이후 패킷 더 있으면 1, 없으면 0
+   &emsp;&emsp; ㄴMF : more fragment, 이후 패킷 더 있으면 1, 없으면 0
     
-    ㄴOffset : 데이터 시작 위치 = 이전 데이터 크기 / 8 = 3,280/8 = 410
+   &emsp;&emsp; ㄴOffset : 데이터 시작 위치 = 이전 데이터 크기 / 8 = 3,280/8 = 410
     
-    -데이터 조각화 후 헤더 붙이기
+   &emsp; -데이터 조각화 후 헤더 붙이기
     
-    ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%2011.png)
+   &emsp;&emsp; ![Untitled](Untitled11.png)
     
-    ㄴIPv4
+   &emsp;&emsp; ㄴIPv4
     
-    ![Untitled](%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC%20e12226ed69e244b79ec0065a895382a4/Untitled%2012.png)
+   &emsp;&emsp; ![Untitled](Untitled12.png)
     
 
 질문
