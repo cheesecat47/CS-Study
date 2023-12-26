@@ -24,7 +24,7 @@
 
 IPv4 프로토콜 ⇒ 다른 네트워크의 특정 대상을 찾는 프로토콜
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/8e0bb6cf-e3db-428e-9593-2534076bf656/Untitled.png)
+![Untitled](png1.png)
 
 **Version** : IP 프로토콜의 버전을 명시 (IPv4의 경우만 올 수 있음)
 
