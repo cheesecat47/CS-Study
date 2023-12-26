@@ -52,7 +52,7 @@
     
    &emsp; -구조
     
-   &emsp;&emsp; ![Untitled](Untitled1.png)
+   &emsp;&emsp; ![Untitled](Untitled 1.png)
     
    &emsp;&emsp; ㄴType : 0(응답), 8(요청), 3(목적지접근X), 11(시간초과), 5(redirect-보안)
     
@@ -66,7 +66,7 @@
     
    &emsp;&emsp; ㄴ라우팅 테이블에 적힌 네트워크 대역에만 송신
     
-   &emsp;&emsp; ![Untitled](Untitled2.png)
+   &emsp;&emsp; ![Untitled](Untitled 2.png)
     
    &emsp;&emsp; ㄴ0.0.0.0 → 기본 게이트웨이
     
@@ -74,7 +74,7 @@
         
    &emsp;     -기본
         
-   &emsp;&emsp;     ![Untitled](Untitled3.png)
+   &emsp;&emsp;     ![Untitled](Untitled 3.png)
         
    &emsp;     - A에서 요청
             
@@ -86,15 +86,15 @@
             
    &emsp;&emsp;         -ICMP : 요청08, 응답00
             
-   &emsp;&emsp;&emsp;         ![Untitled](Untitled4.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled 4.png)
             
    &emsp;&emsp;         -IPv4
             
-   &emsp;&emsp;&emsp;         ![Untitled](Untitled5.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled 5.png)
             
    &emsp;&emsp;         -이더넷 : 목적지 MAC주소는 바로 다음 공유기
             
-   &emsp;&emsp;&emsp;         ![Untitled](Untitled6.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled 6.png)
             
    &emsp;     - 다음 공유기 요청
             
@@ -106,15 +106,15 @@
             
    &emsp;&emsp;         -IPv4
             
-   &emsp;&emsp;&emsp;         ![Untitled](Untitled7.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled 7.png)
             
    &emsp;&emsp;         -이더넷
             
-   &emsp;&emsp;&emsp;         ![Untitled](Untitled8.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled 8.png)
             
    &emsp;&emsp;         ⇒IP주소 & 라우팅 테이블 → 이더넷 주소 갱신
             
-   &emsp;&emsp;&emsp;         ![Untitled](Untitled9.png)
+   &emsp;&emsp;&emsp;         ![Untitled](Untitled 9.png)
             
         
    &emsp;&emsp;     →이더넷 프로토콜은 네트워크 별로 갱신
@@ -133,7 +133,7 @@
     
    &emsp; -과정
     
-   &emsp;&emsp; ![Untitled](Untitled10.png)
+   &emsp;&emsp; ![Untitled](Untitled 10.png)
     
    &emsp;&emsp; ㄴMTU 3,300 byte - header 20byte = payload 3,280byte
     
@@ -143,11 +143,11 @@
     
    &emsp; -데이터 조각화 후 헤더 붙이기
     
-   &emsp;&emsp; ![Untitled](Untitled11.png)
+   &emsp;&emsp; ![Untitled](Untitled 11.png)
     
    &emsp;&emsp; ㄴIPv4
     
-   &emsp;&emsp; ![Untitled](Untitled12.png)
+   &emsp;&emsp; ![Untitled](Untitled 12.png)
     
 
 질문
