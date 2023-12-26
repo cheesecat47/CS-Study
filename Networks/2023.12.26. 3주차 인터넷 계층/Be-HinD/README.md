@@ -86,7 +86,7 @@ ICMP (Internet Control Message Protocol, 인터넷 제어 메시지 프로토콜
 
 ## ICMP 프로토콜의 구조
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/cdecf700-8694-499a-824c-c30179822d9c/Untitled.png)
+![Untitled](png2.png)
 
 **Type** : 대분류, 종류가 다양함.
 
@@ -98,7 +98,7 @@ ICMP (Internet Control Message Protocol, 인터넷 제어 메시지 프로토콜
 
 5번의 경우 원격지에 있는 상대방의 라우팅 테이블을 수정할 때 사용
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/bf6df8b6-8f03-4ed9-9f56-9e6a65996187/Untitled.png)
+![Untitled](png3.png)
 
 Code : 소분류
 
@@ -110,9 +110,7 @@ Code : 소분류
 
 다른 네트워크 대역을 찾아가는 경로에 대한 지도 느낌임
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/85500fac-47d1-4fee-9705-dbcd6677fa26/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/5db04b80-7dc4-4bab-ac9c-915b48b128b4/Untitled.png)
+![Untitled](png4.png)
 
 A → B에게 데이터를 보낼 때 A의 라우팅 테이블에 B의 네트워크 대역이 없다면 보낼 수가 없음.
 
