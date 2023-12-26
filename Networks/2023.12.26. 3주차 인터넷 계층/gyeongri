@@ -1,0 +1,219 @@
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F2b4860d4-ca66-4c43-bf70-fee09c919423%2Fimage.png)
+
+> - 20바이트 + 옵션이 붙을때마다 +4바이트 해서 총 60바이트 까지 가능
+> - 빨간색 두줄은 출발지 IP주소와 목적지 IP주소
+
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Ffa18a849-ad8e-4ad1-b548-176658ab6162%2Fimage.png)
+
+> - 버전은 무조건 4만 온다고 생각해라 버전6은 아예 구조가 다름
+> - 일반적으로 version->4, IHL->5
+> - IP Header Length는 20이 와야하는데
+> - 이진수 4개로 표현할수있는 최대숫자는 1111 --> 15라서 못쓴다.
+> - 나누기 4를 해서 IP Header Length를 써준다
+> - 20은 나누기 4를 한 값 5를 이진수로 바꾸면 1010
+> - TOS는 옛날 개발할때 쓰던것, 지금은 사용X, 00으로 비워둠
+> - Total Length는 헤더의 길이가 아니라, 페이로드까지 합쳐진 길이
+> - 상위계층부터 인캡슐레이션되어 내려온 데이터의 길이 전부 합침
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F3568161a-ac8e-45ff-955c-048b8029e1b6%2Fimage.png)
+
+> - Identification + IP Flags + Fragment Offset은 세트라고 생각
+> - 데이터가 큰것을 보낼때 최대전송단위가 있기 때문에 잘게 쪼개서 보내는데,
+> - 그 때 필요한 값들임
+> 
+>  **Identification**  
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F26af6113-0085-48c5-8ec0-2c1917ce746a%2Fimage.png)
+
+>- 원래 하나의 데이터를 쪼개서 보내면, 받는입장에서는 다시 원래 데이터로 합쳐야 하는데, 하나였던걸 알아보기 위해 표시하는 것
+>
+>  **IP Flags**  
+> ![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Ff7989075-30f6-4f40-97a6-a82c41881724%2Fimage.png)
+> 
+> - 3비트, 첫번째꺼는 안씀
+> - 두번째꺼는 패킷을 보내는사람이 데이터를 안쪼갠다고 명시하는 것  
+>     ex) 최대전송단위가 100메가인데 7개로 쪼개지 않고 700메가를 통으로 보낸다고 지정하는 것, 그렇게 지정하면 전송이 안됨, 그래서 거의 안씀
+> - 세번째꺼는 뒤에 데이터가 더 온다고 알려주는 것 (쪼개서 보내면1, 안쪼개면0 )
+> 
+>  **Fragement Offset**  
+> ![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Fa5e58a87-82a8-436c-8804-b664ce35d281%2Fimage.png)
+> 
+> - 데이터가 순서대로 오지는 않기 때문에 꼬일수 있다
+> - 순서를 알아볼수 있게 해주는 것  
+>     ** 참고: offset : 어느기준으로부터 얼만큼 떨어져있다
+> - 1번데이터는 시작점부터 0만큼 떨어져있다. 그래서 0으로 세팅 됨
+> - 2번데이터는 시작점으로부터 1번데이터 크기만큼 떨어져있다.
+> - 3번데이터는 1+2번데이터 크기만큼 떨어져있다.
+> - 4번데이터는 1+2+3번데이터 크기만큼 떨여저있다.
+> - 5번데이터는 1+2+3+4번데이터 크기만큼 떨어져있다.
+
+> - TTL은 시간설정? 횟수설정?
+> - 장비 라우터등을 하나 지날때마다 1이 줄어듬
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Ff4d5230d-4881-40b7-87e6-ecf637a6275d%2Fimage.png)
+
+> - Protocol은 상위프로토콜을 알려주는 것
+> - IP프로토콜 입장에서 상위프로토콜을 올수잇는것은 ICMP, TCP, UDP
+> - ICMP ( 3계층 ) --> 01로 세팅
+> - TCP (4계층 )--> 06으로 세팅
+> - UDP (4계층 )--> 17로 세팅
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F30de20c0-6916-47a0-86b3-e8ef08d3a3ec%2Fimage.png)
+
+> - Header Checksum은 이 헤더가 오류가 있는지 없는지 확인하는 값
+> - 헤더에 있는 여러가지 필드를 가지고 값을 계산하여 보내면
+> - 받은쪽에서 세팅된 값들을 계산해보고 Header Checksum의 값과 비교
+
+
+##  ICMP 프로토콜
+
+### 1. ICMP가 하는일
+
+> - Internet Control Message Protocol 인터넷 제어 메시지 프로토콜
+> - 특정대상과 내가 통신이 잘 되는지 확인
+> - 네트워크 컴퓨터 위에서 돌아가는 운영체제에서 오류 메시지를 전송받는데 사용
+> - 프로토콜 구조의 Type과 Code를 통해 오류 메시지를 전송 받음
+
+  
+
+### 2. ICMP 프로토콜의 구조
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Fdd4f79ca-58a9-428c-9adb-b7773f1435e3%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-20%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.28.05.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F6d9fa0f3-8fde-4734-90aa-367eb0a64795%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-20%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.13.41.png)
+
+> - Type은 대분류, Code는 소분류
+> - Type 중 0, 8번 / 3, 11번 / 5번은 알아둬야함
+> - 0,8번은 통신을 확인하는 것 : 8번은 요청, 0번은 응답
+> - 3은 목적지에 도달하지 못한 것, 11번은 요청시간이 만료되었습니다.
+> - 3번은 보통 목적지까지 가지못함, 11번은 목적지까지 갔는데 응답X
+> - 보통 3번일 때 가는경로에서 문제있고 11번은 상대방이 문제가 있을 때
+> - 3번의 예로는 라우터 경로설정 잘못, 11번의 예로는 상대방이 방화벽 켜놨을 때
+> - 5번은 원격지에 있는 상대방의 라우팅 테이블을 수정할 때 사용, 남의것을 수정하기 때문에 보안 문제 때문에 요즘은 잘 안씀
+
+##  라우팅 테이블
+
+### 1. 내가보낸 패킷은 어디로 가는가?
+
+> - 3계층의 대표적 역할이 최적의 경로를 프로토콜로 찾아가는 것
+> - 경로를 지도처럼 저장해놓고 있는 것이 라우팅 테이블
+> - 어디로 보내야 하는지 설정되어 있음
+> - 라우팅 테이블은 netstat -r 명령어로 확인할수있음
+> - 라우팅 테이블에 적혀있는 네트워크 대역만 찾아갈 수 있음
+> - 적혀있지 않으면 찾아갈수 없음
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F049d8b29-a482-414e-aad9-8fbe16f3bdb6%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-20%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.14.47.png)
+
+> - 빨간체크한 부분 기본값을 하나 넣음
+> - 기본게이트웨이 설정한 것을 기본값으로 넣음
+> - 0.0.0.0.은 특수한 IP
+
+  
+  
+
+##  다른 네트워크와 통신과정
+
+### 1. 다른 네트워크까지 내 패킷의 이동과정
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F11268aeb-db84-47cb-acf1-f361c9deded6%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-20%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.35.39.png)
+
+> - 4개의 네트워크 대역이 있고 A컴퓨터가 B컴퓨터와 통신을 하는 과정을 살펴보자
+
+======작성한 것 다 날아가서 다시 작성하기 ========
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Fda830d3a-3b39-4776-8fa2-6d07d8c03cab%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.42.55.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Fabe05820-0cb3-40b6-ab53-08c67bdb34b7%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.47.44.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F8b4a5c46-8111-4437-a4e8-d7f921bbe5dc%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.50.31.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F5763d063-f664-40b5-ad1e-f9f87ba7779a%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.54.09.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F08bc33c6-5183-4a42-8b53-702270f98a35%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.56.00.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F329d8421-deab-4cc5-a96b-24621145f748%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.58.04.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F7d08c578-5040-46a8-81e7-1ddce06ccff5%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.00.59.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F59912fb9-3086-4e65-9fb0-59e3d9ce46c2%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.03.52.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Ff3df3b08-80ed-4fb8-b4d9-78740209f45e%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.05.03.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Fd3d4b647-0c95-45c8-b1c6-5fed2264f7d1%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.05.48.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F6c9046e0-7277-43ca-b7c7-2015853985d9%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.09.00.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F15b49075-9b6a-45ce-a1ef-a960bada824d%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.15.41.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F41078a22-402c-4608-828c-955dbfcca8ca%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.17.19.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F758dc8ac-190e-42c3-a97f-a79d4c34e141%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.17.19.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Fb6e5c704-9391-4bb7-9491-ec028c013e7c%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.20.18.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F46af325e-897c-4b8c-b42f-75669e8f5c0e%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.21.28.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F8050d12b-b6d5-442c-8a4d-328e4a19b709%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.25.32.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F92831893-cf56-491c-ba21-e2766d79f073%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.26.15.png)
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F356e62d2-2f7b-4f95-9b3d-6b0c621a6682%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.27.34.png)
+
+
+
+
+##  IPv4의 조각화
+
+### 1. 조각화란?
+
+> - 큰 IP 패킷들이 적은 MTU( Maximum Transmission Unit )를 갖는 링크를 통하여 전송되려면 여러 개의 작은 패킷으로 쪼개어/조각화 되어 전송되어야 함  
+>     ** MTU : 데이터의 최대전송단위, 일반적으로 이 값은 1500바이트로 설정, 네트워크 장비마다 MTU가 설정되어있음
+> - 즉 목적지까지 패킷을 전달하는 과정에 통과하는 각 라우터마다 전송에 적합한 프레임으로 변환이 필요
+> - 일단 조각화 되면, 최종 목적지에 도달할 때까지 재조립되지 않는 것이 일반적
+> - IPv4에서는 발신지 뿐만 아니라 중간 라우터에서도 IP조각화가 가능
+> - IPv6에서는 IP 단편화가 발신지에서만 가능, 재조립은 항상 최신 수신지에서만 가능
+
+  
+
+### 2. 여러개의 패킷으로 조각화 된 패킷
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F995d9afe-15c2-40cf-9967-84ed675ecf48%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.39.36.png)
+
+- MTU가 3300인데 3280으로 쪼개진 이유는
+- IPv4의 헤더의 길이가 보통 20바이트인데 그것이 앞에 붙기때문
+- MTU는 IPv4프로토콜 까지 합친 값이다.
+- MF는 뒤에 쪼개진 데이터가 있으면 1, 없으면 0
+- offset은 떨어진 데이터 크기를 8로 나눠서 써준다.
+- id값은 각자 달려있는데 다 똑같음
+
+  
+
+### 3. 조각화하는 과정
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2F57dd42c8-b536-4f4c-8be1-b1bf1cc6174f%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.50.11.png)
+
+> - 순수한 데이터가 2000바이트
+> - 인캡슐레이션 과정을 거치는데 ICMP요청 프로토콜 ( 8바이트 )이 붙는다.
+> - IPv4가 ( 20바이트 ) 붙어서 총 2028바이트인데
+> - 이떄 MTU가 1500바이트이면 2028은 못 지나간다.
+> - 그래서 데이터를 쪼개야 한다
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Ff11c7946-2b74-4f5c-826a-cf09697fcc87%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.52.11.png)
+
+> - ICMP는 마지막애한테만 붙음
+> - MTU지나가고 나서 이더넷 프로토콜까지 인캡슐레이션 됨
+
+![](https://velog.velcdn.com/images%2Fcombi_areum%2Fpost%2Fdd294114-d04f-4940-82c2-3e88d3d5a5c8%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.57.32.png)
+![[Pasted image 20231226172933.png]]
+![[Pasted image 20231226173001.png]]
+![[Pasted image 20231226173016.png]]
+
+IP 주소는 총 32비트. 8비트씩 dot으로 구분되어 구성됨 IP 주소는 Network ID와 Host ID의 조합 Host ID는 IP 주소에서 Network ID를 제외한 나머지 Network ID를 구하는법: 현재 IP와 서브넷마스크를 비트 AND 연산
+
+서브넷 마스크 : IP주소에서 Net ID의 길이를 나타내는 것
+Network ID와 Host ID를 구분하기 위해서 사용
+IP(32비트) = NetID(ex.24비트) + HostID(ex.8비트)
+
+사이더 (Classless Inter-Domain Routing)
+* IPv4의 `IP 주소 고갈` 및 `라우팅 테이블 대형화`에 대한 해소책
+* IP 주소를 Class A,B,C 등과 같이 규격화된 구분없이, - 비트 단위의 서브네트 마스크 정보도 네트워크 정보로써 함께 라우팅하는 것 . 255 ~ 65,536 정도의 연속 주소 범위를 하나로 할당 가능케 하는 라우팅
