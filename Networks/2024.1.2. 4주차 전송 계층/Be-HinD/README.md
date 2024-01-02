@@ -10,7 +10,7 @@ UDP는 일반적으로 오류의 검사와 수정이 필요 없는 프로그램�
 
 # UDP 프로토콜의 구조
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/ccaa4c29-cd50-43f8-8c87-8137e3dd44e7/Untitled.png)
+![Untitled](1.png)
 
 Length : UDP 프로토콜 헤더 및 페이로드 길이 포함 총 길이.
 
@@ -22,19 +22,19 @@ DNS 서버
 
 - 도메인을 물으면 IP를 알려주는 서버.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/c507167d-3fd0-4f83-b0f4-a1f64b6b785b/Untitled.png)
+![Untitled](2.png)
 
 tftp 서버
 
 - UDP로 파일을 공유하는 서버.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/a0754c21-4fb9-4468-aa0e-8301512cffb3/Untitled.png)
+![Untitled](3.png)
 
 RIP 프로토콜
 
 - 라우팅 정보를 공유하는 프로토콜
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/689fca38-4660-4e4b-8e1e-16539adc905d/Untitled.png)
+![Untitled](4.png)
 
 ---
 
@@ -48,7 +48,7 @@ TCP는 UDP보다 안전하지만 느리다.
 
 ## TCP 프로토콜의 구조
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/d4a1891b-3554-464c-87b6-959ab066573a/Untitled.png)
+![Untitled](5.png)
 
 Sequence Number
 
@@ -92,7 +92,7 @@ TCP를 이용한 데이터 통신을 할 때 프로세스와 프로세스를 연
 
 위의 3개의 과정을 3Way Handshake라고 부른다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/9c357d93-b36e-4d4a-9b5f-9fc23913870b/Untitled.png)
+![Untitled](6.png)
 
 클라이언트와 서버 사이에서 TCP Flag값을 수정하며 3Way Handshake 과정을 진행.
 
@@ -114,19 +114,19 @@ Sequence Number의 경우에는 받은 Ack Number가 되는데(동기화가 이�
 2. 받는 쪽에서 SEQ번호는 받은 ACK번호가 됨.
 3. 받는 쪽에서 ACK번호는 받은 SEQ번호 + 데이터의 크기
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/ae05c434-531e-4389-be9b-16a7dceafcf7/Untitled.png)
+![Untitled](7.png)
 
 클라이언트에서 데이터가 100BYTE인 요청 패킷을 보낼 때.
 
 보내는 데이터가 존재하므로 Push Flag 세팅
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/1308b593-20f4-4f0a-9c98-1a9d381f1b4b/Untitled.png)
+![Untitled](8.png)
 
 웹 서버에서는 해당 요청에 대해 SEQ번호는 받은 ACK번호를 그대로,
 
 ACK 번호는 받은 SEQ번호 + 데이터 크기(100BYTE)인 201로 세팅해서 500BYTE의 요청에 대한 데이터를 전송
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/860c7928-94e5-4e63-93b2-51d09385b580/Untitled.png)
+![Untitled](9.png)
 
 클라이언트는 ACK 요청으로 위 과정과 같은 규칙을 통해 SEQ 및 ACK번호를 지정 후 응답 패킷을 다시금 웹 서버로 전송.
 
@@ -136,7 +136,7 @@ ACK 번호는 받은 SEQ번호 + 데이터 크기(100BYTE)인 201로 세팅해�
 
 TCP의 여러가지 상태 변화를 도식화
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/bcd1d937-2d89-4f27-a34d-4e691a97b5c5/Untitled.png)
+![Untitled](10.png)
 
 실선 : Client의 상태변화
 
@@ -154,27 +154,27 @@ ESTABLISHED 상태 : Client - Server가 연결되어 있는 상태.
 
 해당 강의에서는 서버가 클라이언트에게 데이터를 전송하는 과정을 TCP 프로토콜을 사용하여 설명.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/e3e3b753-3285-4230-b1c4-630a03d3b779/Untitled.png)
+![Untitled](11.png)
 
 예를들어 서버의 HDD에 저장되어 있는 파일을 클라이언트에게 전송하기 위해서는 File System의 Driver를 통해 해당 파일을 서버 프로세스의 메모리에 올려야 함.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/4d6c4b53-8c38-4f76-bf87-982ff6c19477/Untitled.png)
+![Untitled](12.png)
 
 만약 대용량의 데이터를 전송하게 될 때 서버 프로세스의 메모리가 부족한 경우 해당 데이터를 분해해서 메모리에 적재하게 됨. (1.4MB → 64KB씩 분해)
 
 서버 프로세스 메모리에 올려진 데이터의 일부는 Socket을 통해 클라이언트로 전송을 하기위해 TCP단에 있는 또다른 Buffer(메모리)로 카피가 발생
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/a141a8f1-7bec-45f5-842b-c2a9d3a5c14f/Untitled.png)
+![Untitled](13.png)
 
 TCP → IP로 내려갈 때 또한 Buffer에 있는 데이터의 분해가 발생하는데 분해된 데이터를 Segment 패킷이라 부름.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/94e1e41c-5c55-4f9f-a16f-40d58ff2220f/Untitled.png)
+![Untitled](14.png)
 
 하나하나의 Segment패킷은 재차 L2단(2계층)으로 내려오면서 Frame이라는 패킷으로 다시 캡슐화가 이루어지고 이러한 Frame패킷들이 클라이언트로 보내지게 됨.
 
 이제 Client가 Frame 패킷을 받았다는 가정하에 상황들을 알아보자.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/2b55ed3a-2021-4bf1-9066-38e9cebae87d/Untitled.png)
+![Untitled](15.png)
 
 클라이언트 단에서는 받은 Frame을 역캡슐화를 통해 패킷 → Segment로 데이터의 일부분을 꺼내 TCP Buffer에 적재함.
 
@@ -184,7 +184,7 @@ TCP Buffer에 적재한 순간 클라이언트는 서버에게 데이터를 잘 
 
 또한 클라이언트의 TCP Buffer의 크기가 가득차게 될 경우가 발생하는데
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/8d651f07-338e-4b28-85ac-8240255c5161/Untitled.png)
+![Untitled](16.png)
 
 이렇게 될 경우 서버는 데이터를 보내지 않음. >> Wait 발생.
 
