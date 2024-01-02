@@ -188,11 +188,6 @@ TCP Buffer에 적재한 순간 클라이언트는 서버에게 데이터를 잘 
 
 이렇게 될 경우 서버는 데이터를 보내지 않음. >> Wait 발생.
 
-<aside>
-💡 서버측에서 클라이언트의 Window Size를 알 수 있는 방법 ?
->> TCP Protocol의 구조를 보면 Window라는 필드가 존재하고 해당 필드가 나타내는 의미는 현재 TCP Buffer의 남은 Size를 알려주는 것이기 때문에 패킷을 뜯어보면 알 수 있음.
-
-</aside>
 
 이러한 상황을 해결하기 위해서 중요한 점은 TCP Buffer(Window size)가 부족한 상황이 오지않도록 Socket단에 있는 File I/O Buffer로 계속해서 Read를 해서 비워주어야함.
 
