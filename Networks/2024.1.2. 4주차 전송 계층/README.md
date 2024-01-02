@@ -62,7 +62,7 @@
          (아직 서버로부터 받지 못한 데이터가 있을 수 있으므로 TIME_WAIT을 통해 기다린다.)
         서버는 ACK를 받은 이후 소켓을 닫는다 (Closed)
         TIME_WAIT 시간이 끝나면 클라이언트도 닫는다 (Closed)
-        참고 자료: Two Generals' Problem - Wikipedia
+        참고 자료: [Two Generals' Problem - Wikipedia](https://en.wikipedia.org/wiki/Two_Generals%27_Problem)
 
  - 주용 → 지훈
     - 키워드: 3-way handshaking, number of packets, reason
