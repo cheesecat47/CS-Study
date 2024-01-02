@@ -1,3 +1,9 @@
+# 블로그 정리 포스팅 업로드
+https://infinitecode.tistory.com/42
+<hr>
+https://infinitecode.tistory.com/43
+<hr>
+
 # UDP 프로토콜
 
 안전한 연결을 지향하지 않음.
