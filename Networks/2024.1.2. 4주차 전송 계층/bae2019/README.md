@@ -10,7 +10,7 @@
     
     -구조
     
-    ![Untitled](./Untitled.png)
+    ![Untitled](Untitled.png)
     
     -UDP 프로토콜 사용 프로그램
     
