@@ -10,19 +10,19 @@
     
     -구조
     
-    ![Untitled](Untitled.png)
+    ![](Untitled.png)
     
     -UDP 프로토콜 사용 프로그램
     
     ㄴDNS 서버 : 도메인 입력 시 IP 반환
     
-    ![Untitled](Untitled1.png)
+    ![](Untitled1.png)
     
     ㄴTFT 서버 : UDP로 파일 공유
     
     ㄴRIP 프로토콜 : 라우팅 정보 공유
     
-    ![Untitled](Untitled2.png)
+    ![](Untitled2.png)
     
 - TCP 프로토콜 : 연결지향형
     
@@ -34,7 +34,7 @@
     
     - 구조
         
-        ![Untitled](Untitled3.png)
+        ![](Untitled3.png)
         
         ㄴOffset : 헤더 길이
         
@@ -72,19 +72,19 @@
         
         -요청 
         
-        ![Untitled](Untitled4.png)
+        ![](Untitled4.png)
         
         -요청 응답 12(16) = 18 = 1 0010(2) → ack, syn
         
-        ![Untitled](Untitled5.png)
+        ![](Untitled5.png)
         
         -수락
         
-        ![Untitled](Untitled%206.png)
+        ![](Untitled%206.png)
         
         -최종
         
-        ![Untitled](Untitled7.png)
+        ![](Untitled7.png)
         
         *추가
         
@@ -106,13 +106,13 @@
         
         -예시
         
-        ![Untitled](Untitled8.png)
+        ![](Untitled8.png)
         
-        ![Untitled](Untitled9.png)
+        ![](Untitled9.png)
         
     - TCP 상태전이도
         
-        ![Untitled](Untitled10.png)
+        ![](Untitled10.png)
         
         -실선 : client 상태 변화
         
@@ -128,4 +128,4 @@
         
     - TCP 상태전이도 with 3Way Handshake
         
-        ![Untitled](Untitled11.png)
+        ![](Untitled11.png)
