@@ -1,6 +1,6 @@
 # 블로그 정리 링크
-https://infinitecode.tistory.com/50
-https://infinitecode.tistory.com/51
+<p>https://infinitecode.tistory.com/50 </p>
+<p>https://infinitecode.tistory.com/51 </p>
 
 <hr>
 
