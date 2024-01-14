@@ -31,7 +31,7 @@ HTML 문서를 전송 받은 뒤 연결을 끊고 다시 연결하여 데이터�
 
 단순 동작 ( 연결 수립, 동작, 연결 해제) 이 반복되어 통신 부하 문제 발생
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/b392dda8-53f7-4e4e-a688-eccb4725beb9/Untitled.png)
+![Untitled](1.png)
 
 위와 같은 문제를 해결하기 위해 HTTP 1.1이 등장
 
@@ -49,17 +49,17 @@ HTTP 1.1
 
 Data를 압축해서 전달이 가능하도록 하여 전달하는 Data 양이 감소
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/4890e670-db72-483d-9b95-0fdc9c4e71d4/Untitled.png)
+![Untitled](2.png)
 
 # HTTP 요청 프로토콜
 
 ## 구조
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/fad08290-4f63-4dcf-88af-32ebe7ab99e6/Untitled.png)
+![Untitled](3.png)
 
 ### Request Line
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/7fe660c4-dfba-4f17-af15-92a3df9568f1/Untitled.png)
+![Untitled](4.png)
 
 공백으로 각각의 데이터를 구별함.
 
@@ -99,7 +99,7 @@ Kernel 단에서는 NIC을 통해 들어온 패킷을 포트번호를 통해 식
 
 # 웹 브라우저에 URL 입력하면 일어나는 일 - 인프라 위주
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/d880c994-f821-4315-b532-fde38215f2dc/Untitled.png)
+![Untitled](5.png)
 
 위와 같은 사진 속 상황 속 URL 입력을 하게 되었을 때 이후를 묻는 면접질문은 Well Known!
 
@@ -122,7 +122,7 @@ Kernel 단에서는 NIC을 통해 들어온 패킷을 포트번호를 통해 식
 
 ## 전체적인 흐름도
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/e9955dd8-747e-4271-945f-aef44ad324c5/Untitled.png)
+![Untitled](6.png)
 
 간혹 Google 및 Naver같은 대기업 지원의 경우에는 GSLB 또는 CDN 언급이 필수 아닌 필수가 됨.
 
@@ -165,7 +165,7 @@ DNS Spoofing Attack 혹은 DNS 캐시 포이즈닝 공격에 대한 대처는 �
 
 >> 해당 공격은 DNS 서버에 있는 캐시에 유입되어 DNS가 유효하지 않은 결과 레코드를 반환하게 하는 공격입니다. (예를들어 네이버를 요청했는데 DNS 캐시에는 존재하지 않지만 공격에 의해 이상한 사이트의 IP를 응답으로 주게 되겠죠.) 
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/7f6e2cf5-4c52-448d-a07b-3af55e930b58/Untitled.png)
+![Untitled](7.png)
 
 대처라고 한다면 hosts 파일을 사용할 경우 DNS Cache보다 우선적으로 참조되는 특성이 있기 때문에 hosts파일 갱신을 통해 적어도 hosts파일에 올라와있는 DN에 대해서는 해당 공격에 대해서 어느정도 대처를 할 수 있습니다.
 
@@ -217,11 +217,11 @@ naver에 대해서 질의를 하여 응답을 받고, naver는 웹서버가 여�
 
 모든 응답에 대해서는 유효기간이 있고, 유효기간 안에 질의를 하면 캐싱을 하여 응답.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/61d9c98b-64e1-4ce0-a126-2e178943ef7e/Untitled.png)
+![Untitled](8.png)
 
 ### Root DNS List
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/e4ba5bfb-cfa0-4a4e-b147-27db6ad9ac14/Untitled.png)
+![Untitled](9.png)
 
 CMD에서 nslookup -199.9.14.201 같은 명령어를 입력하게 되면 해당 서버에 naver의 주소를 묻게되면 DNS서버 리스트를 보여줌. >> 약간 수직문화 리버스 느낌이라 위에서부터 아랫단 DNS서버로 물어봐야하는 시스템
 
@@ -231,6 +231,6 @@ CMD에서 nslookup -199.9.14.201 같은 명령어를 입력하게 되면 해당 
 
 # URL vs URI ?
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/3a4fc991-484e-4ff1-ad75-3f65eabf5931/Untitled.png)
+![Untitled](10.png)
 
 두 개의 키워드는 같은 느낌, 같은 역할 같지만 URI가 URL의 상위라는 점만 기억.
