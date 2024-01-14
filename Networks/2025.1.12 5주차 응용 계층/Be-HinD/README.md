@@ -1,3 +1,9 @@
+# 블로그 정리 링크
+https://infinitecode.tistory.com/50
+https://infinitecode.tistory.com/51
+
+<hr>
+
 # HTTP 프로토콜
 
 ## 웹을 만들기 위해 사용되는 다양한 기술
