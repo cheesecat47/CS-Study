@@ -54,7 +54,7 @@
 
 - 상호 배제를 위한 동기화 도구(탈의실의 자물쇠 역할)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/750d17ca-c411-4773-b4bf-5db4661e65e3/Untitled.png)
+![Untitled](1.png)
 
 <aside>
 💡 **뮤텍스 락의 단순한 형태**
@@ -66,7 +66,7 @@
 
 </aside>
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/5323651b-16df-4e3a-bc78-3a640051b2b3/Untitled.png)
+![Untitled](2.png)
 
 - busy waiting : 무한히 반복하면서 임계 구역이 잠겨있는지 확인하는 행동.
 
@@ -76,13 +76,13 @@
 - 공유 자원이 여러 개 있는 경우에도 적용 가능
 - 이진 세마포어, 카운팅 세마포어 중 카운팅 세마포어에 대해서만.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/78d51232-03f3-4aad-b6ed-8ed687334b5b/Untitled.png)
+![Untitled](3.png)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/4563f719-8753-4789-aab1-f0fa290cc837/Untitled.png)
+![Untitled](4.png)
 
 - 임계 구역 앞에서 멈춤 신호를 받으면 잠시 기다리기
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/aa5df181-53f4-45ba-aff5-3d85c9ea1bc1/Untitled.png)
+![Untitled](5.png)
 
 - 임계 구역 앞에서 가도 좋다는 신호를 받으면 임계 구역 진입
 
@@ -98,11 +98,11 @@
 
 ### wait함수
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/5474bbf4-965d-492f-b1eb-a05ccb12379c/Untitled.png)
+![Untitled](6.png)
 
 ### signal함수
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/13b71103-5f28-41a1-b694-0d29bb02f141/Untitled.png)
+![Untitled](7.png)
 
 - 세마포어 또한 S가 0일 시 Busy Waiting이 발생하여 CPU낭비가 발생할 수 있음.
     - 사용할 수 있는 자원이 없을 경우(S == 0) **대기 상태**로 만듦
@@ -134,7 +134,7 @@
     - 공유자원에 접근하고자 하는 프로세스를 (인터페이스를 위한) 큐에 삽입
     - 큐에 삽입된 순서대로 (한 번에 하나의 프로세스만) 공유 자원 이용
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/35898c56-48e2-4d76-a833-1eb4c36bc2e5/Untitled.png)
+![Untitled](8.png)
 
 1. 실행 순서 제어를 위한 동기화
     - 조건 변수 이용
@@ -142,7 +142,7 @@
     - 조건변수.wait() : 대기 상태로 변경, 조건 변수에 대한 큐에 삽입
     - 조건변수.signal() : wait()으로 대기 상태로 접어든 조건변수를 실행 상태로 변
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bd50b0fd-675b-41a4-9c64-cccbec0fb4a4/8915eb41-26c8-488d-950b-e07842540a93/Untitled.png)
+![Untitled](9.png)
 
 <aside>
 💡 모니터 안에는 하나의 프로세스만이 있을 수 있다
