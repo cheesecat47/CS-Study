@@ -1,3 +1,8 @@
+# 블로그 정리 링크
+<p>https://infinitecode.tistory.com/56</p>
+
+<hr>
+
 # 1. 프로세스 동기화
 
 <aside>
